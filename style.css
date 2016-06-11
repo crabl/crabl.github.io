@@ -12,7 +12,7 @@ body {
 .page {
   max-width: 800px;
   margin: 0 auto;
-  padding: 100px;
+  padding: 100px 100px 0px 100px;
 }
 
 .header {
@@ -49,9 +49,13 @@ body {
   margin-top: 80px;
 }
 
+.post {
+  margin-bottom: 100px;
+}
+
 .post p {
   font-family: 'Domine', serif;
-  line-height: 1.5em;
+  line-height: 1.78em;
   margin: 24px 0;
 }
 
