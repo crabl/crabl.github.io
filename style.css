@@ -15,6 +15,18 @@ body {
   padding: 100px 100px 0px 100px;
 }
 
+@media screen and (max-width: 800px) {
+  .page {
+    padding: 50px 50px 0px 50px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .page {
+    padding: 20px 20px 0px 20px;
+  }
+}
+
 .header {
   display: block;
   vertical-align: middle;
@@ -78,3 +90,5 @@ h1.logo__heading a:active {
   border-radius: 4px;
   font-family: 'Source Code Pro', monospace;
 }
+
+
