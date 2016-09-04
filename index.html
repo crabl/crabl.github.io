@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Rabbit Hole: the blog of Chris Rabl</title>
+  <title>crabl.net</title>
   <link rel="stylesheet" href="style.css" />
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Source+Code+Pro:400|Domine:400+700" type="text/css">
@@ -14,14 +14,68 @@
   <div class="page">
     <header class="header">
       <section class="logo__container">
-        <div class="logo__dot"></div>
-        <h1 class="logo__heading">Rabbit Hole</h1> <span class="logo__description">inside the mind of crabl</span>
+        <h1 class="logo__heading"><a href="#">Chris Rabl</a></h1> <span class="logo__description">embrace the javascript future</span>
       </section>
     </header>
 
     <section class="posts">
+       <article class="post">
+        <h1><a href="#headspace" name="headspace">Headspace</a></h1>
+
+        <p>
+          Way back in undergrad, I had the pleasure of working with <a href="http://pygmytrollproductions.com/">Curtis Litchfield</a> on an semester-long independent study project. 
+          We developed <a href="https://github.com/crabl/headspace">Headspace</a>, a Python library that makes it easy to do real-time positional audio in 3 dimensions. It's written in Python and uses an amazing DSP library called 
+          <a href="http://ajaxsoundstudio.com/software/pyo/">PYO</a> written by <a href="http://olivier.ajaxsoundstudio.com/">Olivier B&eacute;langer</a>.
+        </p>
+
+        <p>
+          Based on the principle of <a href="https://en.wikipedia.org/wiki/Head-related_transfer_function">Head-Related Transfer Functions</a> (HRTFs), Headspace provides a simple, fast API for developers to add positional audio to their applications. Here is a sample application:
+        </p>
+
+        <pre>
+          <code class="lang-python">
+  from pyo import *
+  from headspace import *
+
+  # Start the audio server
+  s = Server().boot()
+  s.start()
+
+  # Take a PYO WAV object, put it in 3D space, and start playing it
+  shaverWav = SfPlayer("shaver.wav", loop=True)
+  shaver = HeadSpace(shaverWav, 0, 0).out()
+  shaver.ctrl(title="Shaver")
+
+  # Put another sound somewhere else in the space
+  backgroundWav = SfPlayer("VictorOrchestra-BlackWhiteRagtime.wav", loop=True)
+  background = HeadSpace(backgroundWav, 100, 30).out()
+
+  doorOpenWav = SfPlayer("dooropen.wav", loop=True)
+  doorOpen = HeadSpace(doorOpenWav, -20, -10).out()
+
+  phoneRingWav = SfPlayer("phonering.wav", loop=True)
+  phoneRing = HeadSpace(phoneRingWav, -150, -20).out()
+  phoneRing.ctrl(title="Phone Ring")
+
+  # Create a simple user interface
+  s.gui(locals())
+          </code>
+        </pre>
+
+        <p>
+          Recently, I've received some requests from folks who have used this library in their own research, and I've been trying to make it a little more performant and accurate.
+          One issue that's been causing me some trouble however, is when the setAzimuth and setElevation methods are called rapid-fire, there is a perceptible "pop" when swapping out the
+          impulse responses... My inkling is that moving some of the methods to PYO's <a href="http://ajaxsoundstudio.com/pyodoc/_modules/pyolib/tableprocess.html#TableMorph">TableMorph</a> 
+          data structure would eliminate this issue, but doing signal processing is very taxing on my brain, no matter how simple PYO makes it!
+        </p>
+
+        <p>
+          In the mean time, check out the source on <a href="https://github.com/crabl/headspace">GitHub</a> today, and submit a pull request if you understand DSP better than I do!
+        </p>
+      </article>
+
       <article class="post">
-        <h1>Ceci n'est pas un titre</h1>
+        <h1><a href="#first-post" name="first-post">Ceci n'est pas un titre</a></h1>
 
         <p>
           As luck would have it, I've decided to start to blog again. Now before you go and link to this insightful, world-changing post
@@ -65,12 +119,31 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script type="text/javascript">
     hljs.initHighlightingOnLoad();
+
+    var slogans = [
+      'functional, elegant', 
+      'javascript rants as a service', 
+      'server farm to table', 
+      'the original crabl', 
+      'professional coder on a closed source',
+      'tabs vs. spaces: discuss',
+      'what the helvetica bold?'
+    ];
+
+    function setSlogan(slogan) {
+      var slogalEl = $('.logo__description');
+      slogalEl.text(slogan);
+    }
+
+    var random = Math.floor(Math.random() * slogans.length);
+    setSlogan(slogans[random]);
   </script>
 
   <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
   </script>
+
   <script type="text/javascript">
     try {
       var pageTracker = _gat._getTracker("UA-23053252-1");

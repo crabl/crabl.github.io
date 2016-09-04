@@ -20,21 +20,19 @@ body {
   vertical-align: middle;
 }
 
-.logo__dot {
-  vertical-align: top;
-  display: inline-block;
-  height: 21px;
-  width: 21px;
-  border-radius: 30px;
-  background: #252627;
-}
-
 .logo__heading {
   vertical-align: baseline;
-  margin-left: 10px;
   display: inline;
   font-size: 18px;
   font-weight: 700;
+}
+
+h1.logo__heading a:link, 
+h1.logo__heading a:visited,
+h1.logo__heading a:hover,
+h1.logo__heading a:active {
+  text-decoration: none;
+  color: #252627 !important;
 }
 
 .logo__description {
@@ -61,6 +59,14 @@ body {
 
 .post h1 {
   font-size: 2em;
+}
+
+.post h1 a:link, 
+.post h1 a:visited,
+.post h1 a:hover,
+.post h1 a:active {
+  text-decoration: none;
+  color: #252627 !important;
 }
 
 .post pre {
