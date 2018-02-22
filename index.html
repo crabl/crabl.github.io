@@ -1,159 +1,54 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <title>crabl.net</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Chris Rabl</title>
+  <style type="text/css">
+    html {
+      margin: 0;
+      padding: 0;
+    }
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Source+Code+Pro:400|Domine:400+700" type="text/css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/agate.min.css" type="text/css">
+    body {
+      background: #fafafa;
+      color: #252627;
+      text-rendering: optimizeLegibility !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      width: 100%;
+      max-width: 600px;
+      box-sizing: border-box;
+      padding: 1em;
+      margin: 0 auto;
+      line-height: 1.8em;
+      text-align: justify;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+  </style>
 </head>
 
 <body>
+  <p>
+    <strong>Chris Rabl</strong>
+  </p>
 
-  <div class="page">
-    <header class="header">
-      <section class="logo__container">
-        <h1 class="logo__heading"><a href="#">Chris Rabl</a></h1> <span class="logo__description">stop hatin' on javascript</span>
-      </section>
-    </header>
+  <p>
+    I'm a front-end developer who has been so busy writing kick-ass
+    <a href="http://www.typescriptlang.org/">TypeScript</a> code over at
+    <a href="https://autovance.com/">Autovance</a>, co-running the
+    <a href="https://meetup.com/CodeYQL">CodeYQL</a> meetup,
+    <a href="https://github.com/crabl/">building cool things</a>,
+    <a href="https://github.com/trs/ghost-in-the-wire/">learning</a>, and sitting on the
+    <a href="http://citweb.lethbridgecollege.ab.ca/index.php/advisory-members">CIT advisory committee</a> 
+    that I haven't taken the time to build myself a real website. Maybe one day.
+  </p>
 
-    <section class="posts">
-      <article class="post">
-        <h1><a href="#selenium" name="selenium"></a></h1>
-      </article>
-
-      <article class="post">
-        <h1><a href="#headspace" name="headspace">Headspace</a></h1>
-
-        <p>
-          Way back in undergrad, I had the pleasure of working with <a href="http://pygmytrollproductions.com/">Curtis Litchfield</a> on an semester-long independent study project. 
-          We developed <a href="https://github.com/crabl/headspace">Headspace</a>, a Python library that makes it easy to do real-time positional audio in 3 dimensions. It's written in Python and uses an amazing DSP library called 
-          <a href="http://ajaxsoundstudio.com/software/pyo/">PYO</a> written by <a href="http://olivier.ajaxsoundstudio.com/">Olivier B&eacute;langer</a>.
-        </p>
-
-        <p>
-          Based on the principle of <a href="https://en.wikipedia.org/wiki/Head-related_transfer_function">Head-Related Transfer Functions</a> (HRTFs), Headspace provides a simple, fast API for developers to add positional audio to their applications. Here is a sample application:
-        </p>
-
-        <pre>
-          <code class="lang-python">
-  from pyo import *
-  from headspace import *
-
-  # Start the audio server
-  s = Server().boot()
-  s.start()
-
-  # Take a PYO WAV object, put it in 3D space, and start playing it
-  shaverWav = SfPlayer("shaver.wav", loop=True)
-  shaver = HeadSpace(shaverWav, 0, 0).out()
-  shaver.ctrl(title="Shaver")
-
-  # Put another sound somewhere else in the space
-  backgroundWav = SfPlayer("VictorOrchestra-BlackWhiteRagtime.wav", loop=True)
-  background = HeadSpace(backgroundWav, 100, 30).out()
-
-  doorOpenWav = SfPlayer("dooropen.wav", loop=True)
-  doorOpen = HeadSpace(doorOpenWav, -20, -10).out()
-
-  phoneRingWav = SfPlayer("phonering.wav", loop=True)
-  phoneRing = HeadSpace(phoneRingWav, -150, -20).out()
-  phoneRing.ctrl(title="Phone Ring")
-
-  # Create a simple user interface
-  s.gui(locals())
-          </code>
-        </pre>
-
-        <p>
-          Recently, I've received some requests from folks who have used this library in their own research, and I've been trying to make it a little more performant and accurate.
-          One issue that's been causing me some trouble however, is when the setAzimuth and setElevation methods are called rapid-fire, there is a perceptible "pop" when swapping out the
-          impulse responses... My inkling is that moving some of the methods to PYO's <a href="http://ajaxsoundstudio.com/pyodoc/_modules/pyolib/tableprocess.html#TableMorph">TableMorph</a> 
-          data structure would eliminate this issue, but doing signal processing is very taxing on my brain, no matter how simple PYO makes it!
-        </p>
-
-        <p>
-          In the mean time, check out the source on <a href="https://github.com/crabl/headspace">GitHub</a> today, and submit a pull request if you understand DSP better than I do!
-        </p>
-      </article>
-
-      <article class="post">
-        <h1><a href="#first-post" name="first-post">Ceci n'est pas un titre</a></h1>
-
-        <p>
-          As luck would have it, I've decided to start to blog again. Now before you go and link to this insightful, world-changing post
-          on Reddit, Hacker News and StackOverflow (which you almost certainly won't, anonymous visitor), let me provide a quick disclaimer:
-          the current count now stands at three. Three blogs I've started, and with the certitude of a Trump presidency, have stopped posting
-          on almost immediately after hitting the submit button on the inaugural "Hello, World" post.
-        </p>
-
-        <p>Three. Damn. Blogs.</p>
-
-        <p>Four if you count Tumblr (which you shouldn't). Five if you count that time in high school when I accidentally
-          published the contents of my entire hard drive to the deep web (oops).
-        </p>
-
-        <pre>
-          <code class="lang-javascript">
-  $(document).load(function () {
-    alert("prepare yourself for the most amazing blog evarrrrr");
-  });
-
-  // I've included jQuery on this page too, because
-  // what kind of monster doesn't need jQuery?
-          </code>
-        </pre>
-
-        <p>
-          This time will be different. I'm motivated. I've been writing drafts of posts for <strong>literally months</strong> at this point.
-          My GitHub contribution chart makes it look like I haven't slept in eight weeks (it's been closer to six, actually). I've hand-written a sick
-          theme using less than 100 lines of CSS like all the cool kids are doing now. My BEM syntax has never been more on point. Plus, the
-          thought of being able to share my thoughts at will with random strangers on the internet just makes me twitch with uncontrollable delight.
-        </p>
-
-        <p>(leave while you still can)</p>
-
-        <p>So yeah. Let's do this.</p>
-      </article>
-    </section>
-  </div>
-
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script type="text/javascript">
-    hljs.initHighlightingOnLoad();
-
-    var slogans = [
-      'functional, elegant', 
-      'javascript rants as a service', 
-      'server farm to table', 
-      'the original crabl', 
-      'professional coder on a closed source',
-      'debating tabs vs. spaces at parties',
-      'what the helvetica bold is this',
-      'the real brogrammers of orange county',
-      'agile full stack devops',
-      'sarcasm as a service',
-      'cereal entrepreneur at breakfast',
-      'minimum viable rockstar',
-      'the internet of ramen',
-      'ninja cloud-scale growth hacking',
-      'hand-crafted boutique big data',
-      'my mother had me a/b tested',
-      'straight outta radioshack',
-      'just another crowdsourced ai',
-      'crushing it since 2008'
-    ];
-
-    function setSlogan(slogan) {
-      var slogalEl = $('.logo__description');
-      slogalEl.text(slogan);
-    }
-
-    var random = Math.floor(Math.random() * slogans.length);
-    setSlogan(slogans[random]);
-  </script>
+  <p>
+    If you'd like to get in touch, you can reach me on
+    <a href="https://twitter.com/crabl">Twitter</a>, or send me an
+    <a href="mailto:chris@crabl.net">e-mail</a> (or better yet, attend one of the meetup events)!
+  </p>
 
   <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -164,8 +59,11 @@
     try {
       var pageTracker = _gat._getTracker("UA-23053252-1");
       pageTracker._trackPageview();
-    } catch (err) {}
+    } catch (err) { }
   </script>
 </body>
-
 </html>
+
+
+
+<!-- niceee -->
