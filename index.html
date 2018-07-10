@@ -4,68 +4,80 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>crabl.net</title>
+  <link rel="stylesheet" href="https://use.typekit.net/gsz2tos.css">
   <style type="text/css">
     html {
       margin: 0;
       padding: 0;
     }
 
-    @font-face {
-      font-family: 'BusinessHistory';
-      src: url('./00BusinessHistory-Regular.woff') format('woff');
-    }
-
     body {
-      background: #fffdd7;
+      background: #fafafa;
       color: #252627;
 
       box-sizing: border-box;
       padding: 1em;
-      margin: 0 auto;
-      line-height: 1.8em;
+      line-height: 1.6em;
 
-      font-family: 'BusinessHistory', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: 40px;
+      font-family: 'aktiv-grotesk-extended', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-weight: 500;
+      font-size: 30px;
       text-rendering: optimizeLegibility !important;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    a:link, a:visited { color: #0012ff; }
-    a:hover { color: #e736ff; }
+    a:link, a:visited { color: #1788f9; }
+    a:hover { color: #0fe7e7; }
+    .animoji {
+      height: 80px;
+      width: 80px;
+    }
+
+    .name-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .content {
+      margin: 70px 0 0 20px;
+      max-width: 900px;
+    }
+
+    .content p {
+      margin-bottom: 2em;
+    }
+
+    @media only screen and (max-width: 700px) {
+      body {
+        font-size: 20px !important;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <p>
-    <strong>Chris Rabl</strong>
+  <p class="name-logo">
+    <img src="crabl-animoji.png" class="animoji" /><strong>Chris Rabl</strong>
   </p>
 
-  <p>
-    <br />
-  </p>
+  <div class="content">
 
-  <p>
-    → I'm the lead front-end engineer at <a href="https://autovance.com/">Autovance</a> where we build the most kick-ass tools for car dealerships
-  </p>
+    <p>
+      → I'm the lead front-end engineer at <a href="https://autovance.com/">Autovance</a> where we build the most kick-ass tools for car dealerships
+    </p>
 
-  <p>
-    → In my spare time, I like to take <a href="https://instagram.com/chrisrabl">pictures</a>, build <a href="https://github.com/crabl/">cool things</a> &amp; co-organize the <a href="https://meetup.com/CodeYQL">CodeYQL</a> meetup
-  </p>
+    <p>
+      → In my spare time, I like to take <a href="https://instagram.com/chrisrabl">pictures</a>, build <a href="https://github.com/crabl/">cool things</a> &amp; co-organize the <a href="https://meetup.com/CodeYQL">CodeYQL</a> meetup
+    </p>
 
-  <p>
-      → If you'd like to get in touch, you can catch me on
-    <a href="https://twitter.com/crabl">the Twitter</a>, <a href="https://www.linkedin.com/in/crabl/">Link me In</a>, or send me an
-    <a href="mailto:chris@crabl.net">e-mail</a>
-  </p>
+    <p>
+        → If you'd like to get in touch, you can catch me on
+      <a href="https://twitter.com/crabl">the Twitter</a>, <a href="https://www.linkedin.com/in/crabl/">Link me In</a>, or send me an
+      <a href="mailto:chris@crabl.net">e-mail</a>
+    </p>
 
-  <p>
-    <br />
-  </p>
-
-  <p style="font-size: 20px;">
-    Fonts by <a href="https://www.businessfonts.biz/">⚘BUSINESS FONTS🎴</a>
-  </p>
+  </div>
 
   <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
